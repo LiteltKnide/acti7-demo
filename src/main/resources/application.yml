@@ -1,0 +1,34 @@
+#server:
+#  port: 8080
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/activiti7?useUnicode=true&characterEncoding=utf-8
+#    username: root
+#    password: root123456
+#  activiti:
+#    database-schema-update: update
+#    history-level: full
+#    check-process-definitions: false
+#    db-history-used: true
+spring:
+  # db
+  datasource:
+    url: jdbc:mysql://localhost:3306/activiti7?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&nullCatalogMeansCurrent=true
+    username: root
+    password: root123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialization-mode: always
+
+  #Activiti property configuration
+  activiti:
+    database-schema-update: true
+    history-level: full
+    db-history-used: true
+
+logging:
+  level:
+    com.ascendant: debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(-%5p)  %clr(${PID:- }){magenta} --- %clr([%15.15t]){faint} %highlight(%-80.80logger{300}){cyan} %clr(:) %m %n%wEx"
